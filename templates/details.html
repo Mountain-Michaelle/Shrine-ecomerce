@@ -6,7 +6,7 @@
     {% block title %}{{product.category.name}}{% endblock %}
 
 {% block content %}
-    {% include 'partials/navbar.html' %}
+    {% include 'partials/navbar2.html' %}
     <!-- Main Section-->
     <section class="mt-5 ">
         <!-- Page Content Goes Here -->
@@ -42,7 +42,7 @@
                               </div>
                               <div class="swiper-slide bg-light bg-light h-auto">
                                   <picture>
-                                    <img class="img-fluid mx-auto d-table" src="./assets/images/products/product-5c.jpg" alt="">
+                                    <img class="img-fluid mx-auto d-table" src="{% if product.image3 %} {{ product.image3.url }} {% else %} {% static 'assets/images/products/product-5c.jpg' %} {% endif %}" alt="">
                                 </picture>
                               </div>
                             </div>
@@ -56,16 +56,16 @@
                                 </div>
                                 <div class="swiper-slide bg-white h-auto">
                                     <picture>
-                                      <img class="img-fluid d-table mx-auto" src="./assets/images/products/product-5b.jpg" alt="" data-zoomable>
+                                      <img class="img-fluid d-table mx-auto" src="{% if product.image2 %} {{ product.image2.url }} {% else %} {% static 'assets/images/products/product-5.jpg' %} {% endif %}"  alt="" data-zoomable>
                                   </picture>
                                 </div>
                                 <div class="swiper-slide bg-white h-auto">
                                     <picture>
-                                      <img class="img-fluid d-table mx-auto" src="./assets/images/products/product-5c.jpg" alt="Bootstrap 5 Template by Pixel Rocket" data-zoomable>
+                                      <img class="img-fluid d-table mx-auto" src="{% if product.image3 %} {{ product.image3.url }} {% else %} {% static 'assets/images/products/product-5c.jpg' %} {% endif %}"  alt="" data-zoomable>
                                   </picture>
                                 </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /Images Section-->

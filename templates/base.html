@@ -5,8 +5,6 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>{% block title %} {% endblock %}</title>
-
    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}">
@@ -22,18 +20,33 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/theme.bundle.css' %}" />
 
-
     <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
+    <title>{% block title %} {% endblock %}</title>
 </head>
-<body>
+
+<body class="">
    <div id="content">
    {% block content %}{% endblock content %}
    </div>
+   <script>
+    
+    const nav = document.querySelector('nav')
+
+    document.addEventListener("scroll",e=>{
+        
+        if(scrollY>100){
+            nav.classList.add('bg-gray-900')
+      
+        }else{
+            nav.classList.remove('bg-gray-900')
+            
+        }
+    })
+
+</script>
    <!-- Theme JS -->
     <!-- Vendor JS -->
     <script src="{% static 'assets/js/vendor.bundle.js' %}"></script>

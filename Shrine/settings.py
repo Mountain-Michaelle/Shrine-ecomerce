@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Third party apps
     'myShop',
     'cart',
+    'orders',
     'widget_tweaks',
 ]
 
@@ -65,6 +66,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'cart.context_processors.cart',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
