@@ -11,7 +11,7 @@ class Cart(object):
 
         if not cart:
             # save an empty cart in the setting
-            cart = self.session[self.CART_SESSION_ID] = {}
+            cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
     
     #Add Product to the cart or update their quantity
@@ -55,7 +55,7 @@ class Cart(object):
             yield item
     
     def __len__(self):
-        """ this method counts all the item in the cart""""
+        """ this method counts all the item in the cart"""
         return sum( item['quantity'] for item in self.cart.values() )
 
     def get_total_price(self):

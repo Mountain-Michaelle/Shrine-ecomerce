@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
     <!-- Page Title -->
     {% block title %}{{product.category.name}}{% endblock %}
@@ -96,7 +97,7 @@
                                 </div>            <small class="text-muted d-inline-block ms-2 fs-bolder">(1288)</small>
                             </div>
                         </div>
-                        <h1 class="mb-2 fs-2 fw-bold">Coastline Plus Waterproof Stormbreaker</h1>
+                        <h1 class="mb-2 fs-2 fw-bold">{{product.name}}</h1>
                         <div class="d-flex justify-content-start align-items-center">
                             <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2">${{product.price}}</p>
                             <s class="lh-1 me-2"><span class="fw-bolder m-0">$94.99</span></s>
@@ -143,24 +144,20 @@
                                     </div>
                                     <div
                                         class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-danger">
-                                        <input type="radio" class="form-check-color-input" id="option-colour-4" name="option-colour"
-                                            value="Cherry Red">
+                                        <input type="submit" class="form-check-color-input" id="option-colour-4" name="option-colour"
+                                            value="Add to cart">
                                         <label class="form-check-label" for="option-colour-4"></label>
                                     </div>
                                 </div>
                             </div>
                             <div class="product-option">
-                                <small class="text-uppercase d-block fw-bolder mb-2">
-                                    Size (UK) : <span class="selected-option fw-bold"></span>
-                                </small>
+                                <medium class="text-uppercase text-danger d-block fw-bolder mb-2">
+                                    You are ordering for: <span class="selected-option text-primary fw-bold ">1  </span> item(s) 
+                                </medium>
                                 <div class="form-group">
-                                    <select name="selectSize" class="form-control" data-choices>
-                                        <option value="">Please Select Size</option>
-                                        <option value="Extra Small">XS</option>
-                                        <option value="Medium">M</option>
-                                        <option value="Large">L</option>
-                                        <option value="Extra Large">XL</option>
-                                    </select>
+                                        <form class="color-danger form-control" action="{% url 'cart:cart_add' product.id %}" method="post">
+                                            {{cart_product_form}} 
+                                            {% csrf_token %}
                                 </div>
                             </div>
                         </div>
@@ -168,11 +165,11 @@
                     
                         <!-- Add To Cart-->
                         <div class="d-flex justify-content-between mt-3">
-                            <button class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">Add To Cart</button>
+                            <input type="submit" class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">
                             <button class="btn btn-orange btn-orange-chunky"><i class="ri-heart-line"></i></button>
                         </div>
                         <!-- /Add To Cart-->
-                    
+                        </form>
                         <!-- Socials-->
                         <div class="my-4">
                             <div class="d-flex justify-content-start align-items-center">
